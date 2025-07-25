@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // 1. 이동 입력
+
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
@@ -25,17 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 평면 이동
+
         rb.velocity = movement * moveSpeed;
     }
 
     void LateUpdate()
     {
-        // 캐릭터 벽 안나가게 설정
+  
         Vector2 pos = transform.position;
 
-        pos.x = Mathf.Clamp(pos.x, -17.6f, 21.6f);    // X 경계
-        pos.y = Mathf.Clamp(pos.y, -9.2f, 12.9f);    // Y 경계
+        pos.x = Mathf.Clamp(pos.x, -17.6f, 21.6f);    
+        pos.y = Mathf.Clamp(pos.y, -9.2f, 12.9f);    
 
         transform.position = pos;
     }

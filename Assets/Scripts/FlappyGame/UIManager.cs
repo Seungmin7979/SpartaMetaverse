@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI restartText;
+    public Button backToMain;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +30,10 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void BackToMain()
+    {
+        backToMain.gameObject.SetActive(true);
     }
 }

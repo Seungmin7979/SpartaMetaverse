@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         uiManager.SetRestart();
+        uiManager.BackToMain();
     }
 
     public void RestartGame()
@@ -39,5 +40,10 @@ public class GameManager : MonoBehaviour
         currentScore += score;
         Debug.Log("Score: " + currentScore);
         uiManager.UpdateScore(currentScore);
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 }
