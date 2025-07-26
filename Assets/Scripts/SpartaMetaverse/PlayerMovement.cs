@@ -9,18 +9,37 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector2 dir = Vector2.down;
+
+    private PlayerAnimationController animator;
+    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<PlayerAnimationController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        movement.Normalize();
+        movement = new Vector2(movement.x, movement.y).normalized;
+
+
+        if (Mathf.Approximately(movement.x, 0) && Mathf.Approximately(movement.y, 0))
+        {
+            animator.IsMoving(false);
+        }
+        else
+        {
+            dir = movement;
+            animator.IsMoving(true);
+        }
+        animator.FaceX(dir.x);
+        animator.FaceY(dir.y);
+        
     }
 
     void FixedUpdate()
