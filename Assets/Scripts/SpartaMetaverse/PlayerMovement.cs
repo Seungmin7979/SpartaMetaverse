@@ -12,13 +12,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 dir = Vector2.down;
 
     private PlayerAnimationController animator;
-    private SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<PlayerAnimationController>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
