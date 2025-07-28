@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public Button backToMain;
     public TextMeshProUGUI bestScoreText;
 
-    private int bestScore = 0;
+    public static int bestScore = 0;
     private const string BestScoreKey = "BestScore";
 
     // Start is called before the first frame update

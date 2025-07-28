@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private int currentScore = 0;
 
     UIManager uiManager;
+ 
     public UIManager UIManager {  get { return uiManager; } }
 
     private void Awake()
@@ -27,6 +28,13 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         uiManager.SetRestart();
+
+
+        if (currentScore > UIManager.bestScore)
+        {
+            UIManager.bestScore = currentScore;
+        }
+
         uiManager.BackToMain();
     }
 
